@@ -1,16 +1,42 @@
-#Guess the Correct Number
+'''
+1 for snake
+-1 for water 
+0 for gun
+'''
 import random
-n = random.randint(1,100)
-a = -1
-gusses = 1
-while(a != n):
-    a = int(input("Gusses the number:"))
-    if (a > n):
-        print("Lower number please")
-        gusses += 1
-    elif(a < n):
-        print("Higher number please")
-        gusses += 1
+computer = random.choice([-1,0,1])
+youstr = input("Enter your choice:")
+youDict = {"s": 1 , "w": -1 , "g": 0}
+reverseDict = {1: "Snake" , -1: "Water",  0: "Gun"}
+you = youDict[youstr]
+
+print(f"You Choose: {reverseDict[you]}\ncomputer choose: {reverseDict[computer]}")
+
+if(computer == you):
+    print("Its a draw!")
+
+else:
+
+    if(computer == -1 and you == 1):  #-2
+        print("You Win!")
 
 
-print(f"You have gussed the number ,{n} correctly in {gusses}attempt ")
+    elif(computer == -1 and you == 0): #-1
+        print("You lose!")
+
+    elif(computer == 1 and you == -1): #2
+        print("You lose!")
+
+    elif(computer == 1 and you == 0):   #1
+        print("You Win!")
+
+    elif(computer == 0 and you == -1):  #1
+        print("You Win!")
+
+    elif(computer == 0 and you == 1):  #-1
+        print("You Lose!")
+
+    else:
+        print("Something went wrong!")
+
+
